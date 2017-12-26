@@ -1,0 +1,156 @@
+Dec 11, 2017  SQL 6 Shen
+
+Database Objects 
+
+Procedure
+
+Considering a store example
+
+dayStartUpTask
+
+ - check for stock
+ - reorder
+ - raise invoice
+ - check for employee attendance
+ 
+ 
+ Procedure
+ call the procedure
+ 
+ - ran faster as it is precompiled
+ - errors are less
+ - more organised
+ 
+ it can take argument for input
+ it can also return values
+ 
+ call by reference
+ 
+ CREATE DEFINER=`root`@`localhost` PROCEDURE `getManagerwithJobId`(job varchar(15), sal decimal(8,2))
+BEGIN
+
+select manager_id, employee_id, first_name from employees where job_id=job;
+sal = select max(salary) from employees where job_id=job;
+
+END
+
+
+Procedure
+ a set of routine to be executed example daily task
+ it can return multiple values
+ Functions can be called within procedures
+ 
+ 
+ Function
+   it is for more specific purpose
+   it is precompiled
+   it can return only one value
+   
+   
+   max(), min, avg(), substr()
+   functions are independent and it can be used within procedures
+   functions should be written as a more reusable code
+   
+   CREATE DEFINER=`root`@`localhost` 
+FUNCTION `initCap`(fname varchar(15)) 
+RETURNS varchar(15) CHARSET utf8
+BEGIN
+
+RETURN concat(upper(substr(fname,1,1)),substr(fname,2)) ;
+END
+
+
+Triggers
+  based on an event if we have to perform any action, it can be done
+  using triggers.
+  
+  
+ LIMIT 
+ how many record needed in output
+ 
+ correlated queries 
+ 
+  is also a subquery but the subquery accesses the main queries
+  they are inefficient
+  
+  SELECT employee_id, first_name 
+FROM employees 
+WHERE employee_id IN (SELECT employee_id
+FROM job_history 
+WHERE job_id= 'IT_PROG');
+
+write a join for the above query
+
+
+
+Transaction
+
+ while adding to cart
+    1. authenticate the card info
+	2. passing the value to the credit card system
+	3. updating database salevalue, stock
+	  if step 3 fails
+	  
+	  should step 1 AND 2 be executed
+	  rollback
+	
+	
+	start transaction
+	
+	...
+	...  savepoint  marker
+	
+	if ...pass
+	      
+		 statement marker
+		 commit
+		 
+	else rollback
+	
+	
+	autocommit
+	
+	
+	indexes
+	indexing - every database has its own algo to create indexes
+	indexes help in executing joins and subquery faster
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+  
+  
+  
+
+
+
+
+
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

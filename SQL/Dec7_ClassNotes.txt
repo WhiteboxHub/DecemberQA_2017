@@ -1,0 +1,350 @@
+SQL 4 - Dec 7, 2017 - Shen
+
+Orderby --  sorting the values as per the field/column
+ select first_name, last_name, job_id, department_id, hire_date from employees order by hire_date;
+select first_name, last_name, job_id, department_id, hire_date, salary from employees order by salary asc;
+select first_name, last_name, job_id, department_id, hire_date, salary from employees order by salary desc;
+
+Orderby --  sorting the values as per the field/column
+ select first_name, last_name, job_id, department_id, hire_date from employees order by hire_date;
+select first_name, last_name, job_id, department_id, hire_date, salary from employees order by salary asc;
+select first_name, last_name, job_id, department_id, hire_date, salary from employees order by salary desc;
+
+ http://www.fileformat.info/info/charset/UTF-16/list.htm
+ 
+ https://www.w3resource.com/mysql/date-and-time-functions/mysql-convert_tz-function.php
+ 
+single rows
+
+multi row functions
+aggregate functions
+  - multiple rows for input and returns one output
+you can get the field/column that passed for the function in your query
+max
+min
+average - avg
+sum
+count(*)
+
+select the second highest salary in department_id 50
+
+
+
+ 
+ 
+ Group by
+ Walmart product table
+ 
+ Company        RAM       Price      Processor        Screensize  productid
+ HP              3 gb     $400      inter core i5       10"        1
+ HP              8 gb     $600      inter core i7       10"        2
+ HP              3 gb     $400      inter core i5       14"        3
+ .
+ Apple          3 gb     $400      inter core i5       10"
+Apple          8 gb     $800      inter core duo       16"
+Dell
+Acer
+Lenovo
+
+HP its own table HP_table
+Apple   apple_table
+
+
+group by
+
+select field/column from product group by company
+select field/column from product group by screensize
+
+group functions
+
+select max(Price) from product group by Company having company='HP'
+
+
+aggregate functions, orderby, group by, joins 
+{select} column,  {aggregate functions}  from table 
+            {joins} other table   on .....
+			where  ....
+			{group by} .....  having
+			{order by}  column  asc / desc
+			[limit]
+		
+JOINS
+
+SQL joins is to fetch data from 2 or more table
+primary and foreign key
+primary and foreign key should set 
+relationship should be well defined
+
+joins perform better coz indexing already set for the table
+
+Kinds of JOINS
+1. Natural JOINS
+2. Self JOINS
+3. Inner joins
+4.  Outer joins
+       Left outer join , right outer join
+5.  Cross join / Cartesian product
+
+
+Natural JOIN
+- they have same column name with same data type
+
+select .....from employees natural join departments;
+
+Self join 
+When the table joins to itself where its
+ foreign key has reference to its own primary key
+ alias
+  employees  e 
+  employees  m
+  
+ 
+ select e.last_name  emp , m.last_name mgr from employees e
+   join employees m on (e.manager_id = m.employee_id) 
+   
+   and e.manager_id=
+   
+   
+
+Inner join
+   are used to return rows from both tables that satisfy the given 
+   condition
+   
+   select employee_id, city, department_name from employees e
+     join departments d   
+	 on d.department_id = e.department_id
+	 join locations l
+	     on d.location_id = l.location_id
+   
+   
+ Outer join  
+   
+   select employee_id, city, department_name from employees e
+     left outer join departments d   
+	 on d.department_id = e.department_id
+ 
+Non- equi joins
+
+between
+
+select e.last_name, e.salary, j.grade_level from employees emp
+ join jobs j on e.salary  between j.min_salary and j.max_salary
+
+ using
+ 
+Shen office : 925-998-9622
+ 
+ 
+
+Assignment
+
+1. count the number people working in seattle
+
+ADDITIONAL ASSIGNMENTS
+Display no of employees in each dept we can use.
+The total salary paid for each department and also when the last recruitment was made in that department.
+Display those departments which have more than 5 employees in them
+Write a query in SQL to display the first and last name, department, city, and state province for each employee.
+Write a query in SQL to display the first name, last name, salary, and job grade for all employees
+Write a query in SQL to display the job title, department name, full name (first and last name ) of employee, and starting date for all the jobs which started on or after 1st January, 1993 and ending with on or before 31 August, 1997
+
+
+
+
+
+------------------------------Additional notes-----------------------
+GROUP BY ....HAVING
+
+The GROUP BY clause is used with the SELECT statement to make a group of rows based on the values of a specific column or expression. The SQL AGGREGATE function can be used to get summary information for every group and these are applied to an individual group.
+
+The WHERE clause is used to retrieve rows based on a certain condition, but it can not be applied to grouped result.
+
+Minimum salary in each department
+Employees whose salary is less than average in each department
+
+-- find all job id in each department
+Select job_id, department from employees group by job_id;
+
+-- find max salary under each department
+Select max(salary), department_id from employees group by department_id;
+
+-- only for one dept filtering
+Select max(salary), department_id from employees group by department_id having department_id=40;
+-- sub group
+-- find all department for each job_id
+Select department_id, job_id from employees group by job_id, department_id;
+
+Select max(salary), department_id, job_id from employees group by department_id, job_id;
+
+SQL Joins
+
+What are JOINS?
+Joins help retrieving data from two or more database tables.
+The tables are mutually related using primary and foreign keys.
+Primary key -  values must be unique and not null
+Foreign key -  it is primary key of one table would be foreign key to another table
+An identifying relationship is when the existence of a row in a child table depends on a row in a parent table like invoice depends on customer. A non-identifying relationship is when the primary key attributes of the parent must not become primary key attributes of the child.
+
+Why should we use joins?
+Now you may think, why we use JOINs when we can do the same task running queries. Especially if you have some experience in database programming you know we can run queries one by one, use output of each in successive queries. Of course, that is possible. But using JOINs, you can get the work done by using only a one query with any search parameters. On the other hand MySQL can achieve better performance with JOINs as it can use Indexing. Simply use of single JOIN query instead running multiple queries do reduce server overhead. Using multiple queries instead that leads more data transfers between MySQL and applications (software). Further it requires more data manipulations in application end also.
+It is clear that we can achieve better MySQL and application performances by use of JOINs.
+
+-- Some examples of when you need a join
+-- Diagram for two or more tables as in our join
+--  hr schema with pk and fk draw joins
+
+Real time example
+Amazon.com application website
+searching for laptops based on price range,
+review
+it is a portal with large db, so there
+will be multiple suppliers like apple, hp,
+lenovo, Each supplier will have their own
+database and they will share for search
+
+Types of Joins :
+
+1.  Natural Join
+The associated tables have one or more pairs of identically named columns. The columns must be the same data type. Don’t use ON clause in a natural join.
+2.  Self Join
+A SELF JOIN is another type of join in SQL which is used to join a table to itself, especially when the table has a FOREIGN KEY which references its own PRIMARY KEY.To join a table itself means that each row of the table is combined with itself and with every other row of the table.
+3.  Inner Join
+The inner JOIN is used to return rows from both tables that satisfy the given condition.
+4.  Outer Join -- left outer join and right outer join
+The LEFT JOIN returns all the rows from the table on the left even if no matching rows have been found in the table on the right. Where no matches have been found in the table on the right, NULL is returned.
+The RIGHT JOIN returns all the columns from the table on the right even if no matching rows have been found in the table on the left. Where no matches have been found in the table on the left, NULL is returned.
+
+5.  Cross join / cartesian product
+Cross JOIN is a simplest form of JOINs which matches each row from one database table to all rows of another.
+In other words it gives us combinations of each row of first table with all records in second table.
+
+Employee -- empid empname deptid managerid
+Department --  deptid deptname managerid
+
+Employee table    Department table
+10 john 50  67        50 sales 67
+20 abc  50  67        60 IT    67
+30 xyz  60  67        70 admin 89
+40 dfg  40  89        80 hr    89
+50 hjk  50  89
+
+Natural join -
+-they have same column name and also their data type
+-if you are trying to retrieve records from the columns which have
+  same name but different data type error is returned.
+
+select employee_id,  first_name, last_name, department_id from employees natural join departments;
+It displays all  records in employees which have department id present in departments table.
+
+pg 183
+
+SELECT department_id, department_name,
+location_id, city
+FROM departments
+NATURAL JOIN locations ;
+
+PG186
+--  USING CLAUSE
+USING clause can also be used for the same purpose. The difference with USING is it needs to have identical names for matched columns in both tables.
+SELECT employees.employee_id, employees.last_name,
+departments.location_id, department_id
+FROM employees JOIN departments
+USING (department_id);
+
+-- with aliases name
+SELECT e.employee_id, e.last_name, d.location_id, department_id
+FROM employees e JOIN departments d  USING (department_id);
+
+-- retrieving with ON command
+When the column names are different then on command can be used
+SELECT e.employee_id, e.last_name, e.department_id,
+d.department_id, d.location_id
+FROM employees e JOIN departments d
+ON (e.department_id = d.dept_id);
+
+-- Self-Joins Using the ON Clause
+SELECT e.last_name emp, m.last_name mgr
+FROM employees e JOIN employees m
+ON (e.manager_id = m.employee_id);
+
+--Applying Additional Conditions to a Join
+SELECT e.employee_id, e.last_name, e.department_id,
+d.department_id, d.location_id
+FROM employees e JOIN departments d
+ON (e.department_id = d.department_id)
+AND e.manager_id = 149 ;
+
+--Creating Three-Way Joins with the ON Clause
+SELECT employee_id, city, department_name
+FROM employees e
+JOIN departments d
+ON d.department_id = e.department_id
+JOIN locations l
+ON d.location_id = l.location_id;
+
+-- Retrieving Records with Nonequijoins
+The SQL NON EQUI JOIN uses comparison operator instead of the equal sign like >, <, >=, <= along with conditions
+
+select * from jobs;
+
+alter table jobs add column grade_level char;
+
+describe jobs;
+
+select * from jobs order by max_salary desc;
+
+select * from jobs where job_id='AD_VP';
+
+update jobs set grade_level='A'
+where job_id='AD_PRES';
+
+SELECT e.last_name, e.salary, j.grade_level
+FROM employees e JOIN jobs j
+ON e.salary
+BETWEEN j.min_salary AND j.max_salary;
+
+-- Outer Joins
+-- INNER Versus OUTER Joins
+
+-- LEFT OUTER JOIN
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e LEFT OUTER JOIN departments d
+ON (e.department_id = d.department_id) ;
+
+-- RIGHT OUTER JOIN
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e RIGHT OUTER JOIN departments d
+ON (e.department_id = d.department_id) ;
+
+[ this is in oracle, it is not available in mysql]
+-- FULL OUTER JOIN
+In SQL the FULL OUTER JOIN combines the results of both left and right outer joins and returns all (matched or unmatched) rows from the tables on both sides of the join clause. It adds null for non-existing values
+
+SELECT e.last_name, d.department_id, d.department_name
+FROM employees e FULL OUTER JOIN departments d
+ON (e.department_id = d.department_id) ;
+
+-- Creating Cross Joins / Cartesian product
+SELECT last_name, department_name
+FROM employees
+CROSS JOIN departments ;
+
+Summary
+- JOINS allow us to combine data from more than one table into a single result set.
+- JOINS have better performance compared to sub queries
+- INNER JOINS only return rows that meet the given criteria.
+- OUTER JOINS can also return rows where no matches have been found. The unmatched rows are returned with the NULL keyword.
+- The major JOIN types include Inner, Left Outer, Right Outer, Cross JOINS etc.
+- The frequently used clause in JOIN operations is "ON". "USING" clause requires that matching columns be of the same name.
+- JOINS can also be used in other clauses such as GROUP BY, WHERE, SUB QUERIES, AGGREGATE FUNCTIONS etc.
+
+
+
+		
+			
+
+ 
+ 
+ 
+ 
+ 

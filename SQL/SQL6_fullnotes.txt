@@ -1,0 +1,216 @@
+Alter table with constraints  
+Delete table
+Create table with constraints
+
+MySQL CONSTRAINTs are :
+NOT NULL
+UNIQUE
+PRIMARY KEY
+FOREIGN KEY
+CHECK
+DEFAULT
+
+
+Create table customers ( id int primary key,
+                                         name varchar(20) not null,
+                                         Email varchar(20) unique);
+Insert into customers values(1, ‘john’,’john@gmail.com), 
+                                             ( 2, ‘jane’, ‘jane@gmail.com’),
+                                             ( 3, ‘jake’,’jake@gmail.com’);
+
+Insert into customers (id, name) values (4, ‘joseph’);
+
+Update customers set email=’joseph@gmail.com’ where id=4;
+
+-- deletes all the rows
+Delete from customers;
+-- delete a particular row when the condition is specified
+Delete from customer where id = 2;
+-- all records are committed by default.
+- my sql transaction are commited 
+Select @@autocommit;    cannot be rolled back
+Commit value can be changed
+Set autocommit =0;
+ 
+Select * from customers;
+Delete from customers;
+Rollback;
+Select * from customers;
+
+Any dml commands can be got back using rollback.
+
+Delete
+Delete all records from table when condition is specified
+Specify condition to delete particular records
+You can rollback the transaction
+Fire triggers before you delete (what is trigger --- are any event happens it will trigger the particular command)
+A trigger is a named database object that is associated with a table, and that activates when a particular event occurs for the table. Some uses for triggers are to perform checks of values to be inserted into a table or to perform calculations on values involved in an update.
+https://dev.mysql.com/doc/refman/5.7/en/triggers.html
+
+
+
+Truncate
+Delete all the records from the table 
+-there is no option to provide where condition it will delete all the records
+In truncate you cannot rollback it is for all ddl statement
+Delete executes slowere compared to truncate delete uses cache which enables us to rollback. Since truncate cannot be rolled back it does not cache so it is faster
+
+
+
+Dml
+Delete from customers where id = 2;
+ddl
+Truncate
+Drop
+Triggers
+Any 
+
+Drop
+Drop delete all records alongwith the schema or structure of the table.
+So you cannot use the table. You need to create again.
+
+Drop table customers;
+Select * from customers;
+---table does not exist----
+
+
+The above are important interview questions
+
+DATABASE OBJECTS
+Objects which are physically existing in the db.
+Tables, stored procedures, functions, triggers, views, etc.
+
+Table - a physical structure to store data. Contains rows and columns. Rows are  interrelated data/information, columns are list of same information
+
+St pro - set of commands 
+Usually we right inline commands. In stored procedures, we give a set of commands in the required order of execution to get the desired result.
+
+Click stored pro -- create store procedure
+
+Create procedure ‘getcustomers‘()
+Begin
+Select * from customers;
+End
+Call getcustomers()
+Create procedure ‘getcustomers‘( id int)
+Begin
+Select * from customers where cust_id = id;
+End
+Call getcustomers(2);
+
+Create procedure ‘getcustomers‘( id int)
+Begin
+Select * from customers;
+Select * from customers where cust_id = id;
+End
+
+You can use for insert, update 
+Compared to inline commands stored procedure is better.
+First time it complies second time it only executes
+So faster and secure than inline commands
+Accessibility can be controlled for the operations.
+
+Overview
+Performance is good 
+Once created sp are compiled and stored in database.
+
+
+
+Functions  -   Date Function
+CREATE DEFINER=`root`@`localhost` FUNCTION `getdatebasedonindex`(
+ dtDate DATETIME,
+    intMonthIndex INT
+) RETURNS date
+BEGIN
+RETURN
+    DATE_SUB(
+        LAST_DAY(
+            DATE_ADD(dtDate, INTERVAL intMonthIndex MONTH)
+        ), 
+        INTERVAL DAY(
+            LAST_DAY(
+                DATE_ADD(dtDate, INTERVAL intMonthIndex MONTH)
+            )
+        )-1 DAY
+    );
+
+END
+Select getdatebasedonindex(‘2017-04-04’, 2)
+
+Reusable , returns only one value
+https://dev.mysql.com/doc/refman/5.7/en/stored-routines-syntax.html
+
+
+Triggers - to fire some events
+Triggers are called before an event
+Events which fires before/after crud operations
+Countries-before insert  audit table hr audit to keep track of all the transactions
+
+VIEWS
+Virtual table 
+Any update or delete command on the view affects the main table
+Rules to follow are the same constraints to be set in view
+Referential integrity constraint in the main table then view must contain that
+Column and proper value must be provided to that column.
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `cust` AS
+    SELECT 
+        `customers`.`Cust_id` AS `Cust_id`,
+        `customers`.`Cust_name` AS `Cust_name`,
+        `customers`.`Cust_email` AS `Cust_email`
+    FROM
+        `customers`
+
+Select * from cust;
+
+
+
+Transactions
+Commit
+Rollback
+Savepoint
+
+Start transaction
+Insert into customers …
+…
+…
+If (condition)
+rollback
+Else commit
+Savepoint marker
+
+Set autocommit = 0;
+Start transaction;
+Insert into customers(cust_id, cust_name) values ( 11, ‘Jaden’);
+Insert into customers(cust_id, cust_name) values ( 12, ‘Jonas’);
+Rollback;
+commit;
+
+
+Autoincrement options
+
+Indexes - database object
+
+Create unique index custname on
+customers(cust_name)
+
+Create index upper_name on customers upper(cust_name);
+Drop index 
+
+Assignment
+Create Student database
+-- send email
+
+Call for ui / qa student list for which batch
+
+Change phone number to ()- pattern
+
+When insert student id auto where student id is 
+Autoincrement number + Month of join date sep + Year of join date 17 
+
+-- todays View transaction index procedure functions triggers
+

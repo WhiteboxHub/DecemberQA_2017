@@ -1,0 +1,355 @@
+Dec 8, 2017   SQL 5   Shen
+
+925-998-9622 - office shen
+
+Null 
+
+ifnull(arg, default)
+check if arg is null then replace with default value
+
+assignment 
+update commission_pct as 10% for employee who are manager for 3 people
+     >3  and <5   20%
+	 <5   30%
+select salary, ifnull(commission_pct, 0) commission, 
+ifnull(commission_pct,0)*salary+ salary  NewSalary   from employees;
+
+if(condition, true, false)
+find rating for employee based on commission
+
+select last_name, if(commission_pct>0.01,'avg', 'below avg')rating from employees;
+
+nullif(arg1, arg2)
+returns null if both arg are equal
+otherwise returns arg1
+
+coalease it same as null if but can
+ return default value or first not null value
+coalease(arg1, arg2,..., default value)
+
+for checking multiple conditions
+
+Select last_name, job_id, salary,
+case job_id  when 'IT_PROG' then 1.10*salary 
+		     When 'ST_CLERK' then 1.15*salary 
+			When 'SA_REP' then 1.20*salary 
+			Else  salary end  'REVISED_SALARY'
+from employees;
+
+if  else if     else if 
+
+select  cols
+ case  field    when  condition1  then expression to be executed
+                when  condition2  then expression to be executed     
+				when  condition3  then expression to be executed
+				else default expression  end
+				
+			
+SUB-QUERIES			
+
+Main query where field_name = (sub query)
+Result of sub query will be passed to the main query
+
+Types of sub-queries
+ single row sub query
+ multiple row sub-queries
+ 
+ find the employee who have job_id same as 141, salary same as 143
+1. select job_id from employees where employee_id=141
+2. select salary from employees where employee_id=143
+
+select first_name, last_name, employee_id where job_id = 
+    (select job_id from employees where employee_id=141)
+	 and
+	 salary = (select salary from employees where employee_id=143)
+	 
+	 
+	 get details of employee with min salary
+	 1. select min(salary) from employees
+select first_name, last_name, employee_id from employees where salary =
+(select min(salary) from employees)
+
+--find second min salary in dept 50
+
+find all employee in each dept whose salary is less than min salary
+   of dep 50
+select min(salary) from employees where department_id=50;
+
+select salary, last_name, department_id from employees group by department_id
+    having min(salary)>
+	(select min(salary) from employees where department_id=50)
+	
+
+	in, any, all
+	
+	value in (a1, a2, a3,....)
+	value which is matching for the value inside  in clause
+	
+	
+	any (a1, a2, a3,.....)
+	
+	all(a1, a2, a3)
+	
+	Find all employees who have salary less than any itprog
+	
+	select salary from employees where job_id='IT_PROG'
+	select salary, employee_id, last_name where 
+	  salary < any (select salary from employees where job_id='IT_PROG')
+	
+	
+	When you need the value to be passed as condition to the query
+	we use sub-queries
+	
+	
+	SET OPERATORS
+	
+	union/union all, intersect/ exists, minus / instead we can use join and not in
+	
+	
+	
+	union - all rows in both tables with repetition
+	intersect - only common rows
+	A -B  -- rows in A which do not occur in B
+	
+	union
+	
+	SELECT employee_id, job_id, department_id
+FROM employees
+UNION ALL
+SELECT employee_id, job_id, department_id
+FROM job_history
+ORDER BY employee_id;
+
+min(salary)> (select min(salary) from employe)
+
+training@whitebox-learning.com
+
+----------complete notes------------------------
+Sub Query
+SET Operator
+
+
+Sub Query
+
+What is a sub Query ?
+Why we need sub queries?
+Reat time examples?
+Main Query --- > Which employees have salaries greater
+than Abel’s salary?
+Sub Query ----- > What is Abel’s salary?
+
+Syntax
+Main query ( sub queryy - single or multiple rows)
+Output of the subquery is an input to the main query.
+SELECT select_list
+FROM table
+WHERE expr operator
+(SELECT select_list
+FROM table);
+
+
+Sub query example
+--- get name  of employee whose salary is less than Abel
+SELECT last_name, salary
+FROM employees
+WHERE salary >
+(SELECT salary
+FROM employees
+WHERE last_name = 'Abel');
+
+Types of Subqueries
+Single row subquery  : a sub query which returns only one result
+Multiple row subquery : a sub query which returns multiple results
+
+Single-Row Subqueries
+
+– Return only one row
+– Use single-row comparison operators  =, >, >=, <, <=, <>
+
+
+--Select employee who have job id same as emp id 141 and salary same as 143
+
+SELECT last_name, job_id, salary
+FROM employees
+WHERE job_id =
+(SELECT job_id
+FROM employees
+WHERE employee_id = 141)
+AND salary >
+(SELECT salary
+FROM employees
+WHERE employee_id = 143);
+
+Different ways of using  single- row subqueries
+
+>>>>>>>>>>>>>>>   Using Group Functions in a Subquery
+Select emp who have min salary
+SELECT last_name, job_id, salary
+FROM employees
+WHERE salary =
+(SELECT MIN(salary)
+FROM employees);
+
+>>>>>>>>>>>>>>  The HAVING Clause with Subqueries
+Find the second highest salary in dept 50
+
+SELECT department_id, MIN(salary)
+FROM employees
+GROUP BY department_id
+HAVING MIN(salary) >
+(SELECT MIN(salary)
+FROM employees
+WHERE department_id = 50);
+
+
+Different ways of using  multiple - row subqueries with IN, ANY, ALL
+Find the employees who have salary less than  any  itprog
+
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE salary < ANY
+(SELECT salary
+FROM employees
+WHERE job_id = 'IT_PROG')
+AND job_id <> 'IT_PROG';
+
+Find non-it employees whose salary is less than all the it prog
+
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE salary < ALL
+(SELECT salary
+FROM employees
+WHERE job_id = 'IT_PROG')
+AND job_id <> 'IT_PROG';
+
+Few examples for subqueries
+# Fetch all the departments based on location = ‘ california’
+Select * from locations;
+Select location_id from locations where state_province = ‘california’;
+Select * from departments where location-id =
+(Select location_id from locations where state_province = ‘california’);
+
+# Fetch all employees who has job_id same as employee with id 141 and salary sames
+As employee with id 143
+# fetch all employees who have min salary
+Select all the min salary and then employees who have min salary
+#fetch employee who have same salary as the minimum sal if department with id 50
+
+
+
+
+
+Overview
+
+-Place subqueries on the right side of the comparison condition.
+-Use single-row operators with single-row subqueries, and use multiple-row
+operators with multiple-row subqueries.
+-multiple-row subqueries cannot be used with single row queries using = operator
+SELECT employee_id, last_name
+FROM employees
+WHERE salary =
+(SELECT MIN(salary)
+FROM employees
+GROUP BY department_id);
+- null value subqueries. Sometimes subquery will return null. The other type is the main subquery may not produce result 
+SELECT emp.last_name
+FROM employees emp
+WHERE emp.employee_id NOT IN
+(SELECT mgr.manager_id
+FROM employees mgr);
+
+
+
+USING THE SET OPERATORS
+UNION/UNION ALL
+INTERSECT
+MINUS
+UNION OPERATOR
+The UNION operator returns results from both
+queries after eliminating duplications.
+
+
+Display the current and previous job details of all employees. Display each employee only once.
+SELECT employee_id, job_id
+FROM employees
+UNION
+SELECT employee_id, job_id
+FROM job_history;
+
+
+UNION ALL OPERATOR
+
+The UNION ALL operator returns results from both
+queries, including all duplications.
+
+#Display the current and previous departments of all employees.
+SELECT employee_id, job_id, department_id
+FROM employees
+UNION ALL
+SELECT employee_id, job_id, department_id
+FROM job_history
+ORDER BY employee_id;
+
+INTERSECT OPERATOR
+The INTERSECT operator returns rows that are
+common to both queries.
+
+#Display the employee IDs and job IDs of those employees who currently have a job title that is the same as their job title when they were initially hired (that is, they changed jobs but have now gone back to doing their original job).
+
+-- intersect in Oracle is EXISTS in my sql
+SELECT employee_id, job_id
+FROM employees
+INTERSECT
+SELECT employee_id, job_id
+FROM job_history;
+
+SELECT  employee_id, first_name, job_id FROM employees
+  WHERE EXISTS (SELECT * FROM job_history
+                WHERE employees.employee_id = job_history.employee_id);
+
+
+MINUS OPERATOR
+The MINUS operator returns rows in the first query
+that are not present in the second query.
+# Display the employee IDs of those employees who have not changed their jobs even once.
+SELECT employee_id
+FROM employees
+MINUS
+SELECT employee_id
+FROM job_history;
+-- in my sql MINUS operator is not available instead we could use left join
+Select * from employees left join job_history on employees.employee_id = job_history.employee_id where job_history.employee_id is NULL;
+
+OVERVIEW
+The expressions in the SELECT lists must match in number and data
+type.
+– Parentheses can be used to alter the sequence of execution.
+– The ORDER BY clause:
+• Can appear only at the very end of the statement
+• Will accept the column name, aliases from the first SELECT statement, or
+the positional notation
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	 
