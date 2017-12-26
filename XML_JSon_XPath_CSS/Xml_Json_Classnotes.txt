@@ -1,0 +1,269 @@
+XML, JSon   - Dec 21, 2017   Shen
+
+Xpath, CSS selector
+
+HTML - 
+Hypertext Markup language
+it is develop and maintain web application
+
+HTML is the UI/ front end for the WEB application
+
+Web Architecture
+n - tier architecture
+
+
+Presentation layer
+html, ios platform, android platform
+window, mac, linux
+ios/platform - version of mobile
+software and hardware - multiple varieties available
+
+
+w3c   world wide web consortium   standard
+
+XML - extensible markup language
+
+structure of xml will be similar to HTML
+
+<  - open 
+>  - close
+<element>  
+
+
+<head>
+   <title>  Login Page </title>
+</head>
+
+Difference between XML and HTML
+1. XML is user defined and HTML is predefine
+2. HTML is only for UI 
+    <p>this is a paragraph</p>
+    All html tags are for display purpose
+	They contain information about the webservice
+	
+	XML is the data itself..  XML is used to 
+	store and transfer/retrieve data
+	
+	XML is the data that travels across the layers
+	
+	XML is fully user defined data
+	
+3.  HTML is not case sensitive but xml is case sensitive	
+	
+	
+	login id password
+	<Student-info>
+	   <login>training@whitebox-learning.com</login>
+	   <password>abc@123</password>
+	</Student-info>
+	
+	employee.xml
+	employee    - simple elements, complex element
+	   employee_id
+	   employee_name - first_name, last_name
+	   manager_id
+	   comm_pct
+	   department_id
+	   job_id
+	   salary
+	   address - address1, address2, city, state, zip
+	   
+	  
+	  simple element - contains the data
+	  complex element - contains other simple element
+	<employeesDB>  
+	  <employee>
+	     <employee_id>456</employee_id>
+		 <employee_name>
+		     <first_name>Allen</first_name>
+			 <last_name>Sams</last_name>
+		  </employee_name>
+	     <job_id>IT_PROG</job_id>
+		 
+		 <address>
+				<address1> 1234 Fremont blvd </address1>
+				<address2> Suite # 12 </address2>
+				<city> Fremont </city>
+				<state>CA</state>
+				<zip>94536</zip>
+		 
+		  </address>
+		  <salary>2000.34</salary>
+	  </employee>
+	  <employee>
+	     <employee_id>456</employee_id>
+		 <employee_name>
+		     <first_name>Allen</first_name>
+			 <last_name>Sams</last_name>
+		  </employee_name>
+	     <job_id>IT_PROG</job_id>
+		 
+		 <address>
+				<address1> 1234 Fremont blvd </address1>
+				<address2> Suite # 12 </address2>
+				<city> Fremont </city>
+				<state>CA</state>
+				<zip>94536</zip>
+		 
+		  </address>
+		  <salary>2000.34</salary>
+	  </employee>
+	  
+	  <employeesDB>
+	  
+	  <user-definedtag>data</user-definedtag>
+	  
+	  <batch>2017-12</batch>
+	  
+	  <!Doctype html>
+	  
+	  Data type definition
+	  
+	Note.xml  
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "Note.dtd">
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+	  
+Note.dtd
+
+<!DOCTYPE note
+[
+<!ELEMENT note (to,from,heading,body)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+]>	  
+
+employee.dtd
+<!Doctype  employee
+[
+<!ELEMENT employee(employee_id, employee_name,salary,job_id)>
+<!ELEMENT  employee_id (#PCDATA)>
+<!ELEMENT employee_name(first_name, last_name)>
+<!ELEMENT first_name(#PCDATA)
+
+
+]>
+
+definition of pcdata like is it number/string/decimal
+you can also validate the data
+
+Schema defines the data type and most important
+the sequence of data receive
+---------
+Web services
+
+SOAP  /  REST Webservices
+
+SOAP uses xml format
+REST it can written in json or simple text format
+
+
+
+
+-------------JSon-------
+JavaScript Object Notation
+
+json object {}
+json array []
+key : value
+
+
+column :
+{
+  column : value
+  complex :{
+            column : value
+          }
+  [column :{}]
+  
+}
+
+
+   employee :{
+	        employee_id:456,
+		    salary : 3456.45,
+		    employee_name : {
+		                      first_name: Allen,
+			    				last_name : Sams
+		                     },
+	         job_id: IT_PROG
+			 email_id:['first@gmail.com', 'second@gmail.com']
+	       }
+
+  
+employee.employee_id  ---> 456
+employee.email_id[0]  ----> 'first@gmail.com'
+
+employee.email_id[1]  ----> 'second@gmail.com'
+
+----------------------------------------------
+
+Pros and cons of xml vs json
+1. JSon is preferred
+    simple easy to understand/write program/parse
+    light weight less bytes to be transferred
+	
+2. as it is simple it is not secure
+
+
+XML is heavy weight but it is secure
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	   
+	   
+	   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

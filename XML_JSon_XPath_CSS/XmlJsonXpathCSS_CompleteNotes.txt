@@ -1,0 +1,196 @@
+XML, Json , Xpath n CSS selectors :
+
+XML, JSon
+XML - extensible markup language, platform independent
+Store and transfer data between two applications
+it is a bridge between two applications
+
+enterprise applications are really very large.
+
+webservices are dominated by rest api
+
+
+ui end-------> middleware/restapi------------->db
+                 business / controller level
+
+Amazon 
+UI - HTML, CSS, JS
+development - java/.net/cpp
+DB-mainframes
+
+
+before XML it was remote procedure calls
+
+now you have different mobile devices - iphone, samsung, google with
+multiple OS and versions. different browsers
+So we need a platform which supports and works with all different platforms.
+rules to understand the xml document
+
+to communicate between all the different layers
+so to transfer data from ui to business . 
+assume there is a request from the ui
+For eg Facebook login in UI (un, password) - it will pass to the db from authentication
+so webservices call are done here to transfer data in xml / json format.
+
+There are two types of web services
+SOAP / Rest
+explain SOAP, REST briefly and their differences
+light/heavy....needs wsdl....it is in the form of xml
+
+test123, passwrd123 -- soap format and rest format
+
+People are still using SOAP for security purpose and those  who 
+XML is basically to be considered as data in markup language format
+Suppose i have data structure as below
+...student id : student name : address 1 : address 2 : city : state : zip : phone : login id : passwd
+write in xml
+
+HTML is hypertext markup language mainly used to share text information
+tags are predefined  list some html
+
+the  embedded information is displayed in the browser page
+
+XML on the other hand is not for direct display
+show w3schools/ xml/xml_whatis.asp
+
+
+HTML and XML both use DOM  document object Model
+what is dom why we need dom dom example. how is dom followed in html and xml
+
+simple / complex, attributes
+prolog --  <?xml version="1.0" encoding='UTF-8'>
+XML tags are case sensitive and should be properly closed.
+
+<bookstore>
+     <book title = "Everyday Italian" author="Guadia" year="2005" price="30.00$">
+     <book title = "Everyday Rome" author="Nelson" year="2015" price="10.00$">
+      <person  name="john" age="21" >
+</bookstore>
+
+To access and manipulate the information we make use of the attributes or properties
+so the data which comes as xml to the browser or front end, it is parsed using javascript
+example code see below
+ from w3schools using Javascript
+
+text =".....xml...";
+parser = new DOMParser();
+xmlDoc= parser.parseFromString(text,"text/xml");
+document.getElementById("demo").innerHTML
+= xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+
+we can use Selenium WebDriver (8 different ways to locate the elements) and all IDE
+have in-built methods to find them
+for eg .. driver.findElementById("title").getText();
+
+
+DTD - document type definition
+Purpose is to define the xml document
+
+XSD
+how the data should transfer.
+not all xml should have xsd
+
+simple type and complex type
+<!doctype html> html5
+<html>
+in html 4 <!doctype html public -"-//w3c//dtd html 4.01//en" "...strict.dtd">
+
+the developer will be defining the xsd.
+xml schema definitions
+who is responsible 
+at the application level, when they define the requirements
+
+----------------------------------------------------------------------------------------------------
+Json - light weight, Java script Object notation
+
+data will be written as json object and json array
+json object  - { }
+json array  - [ ]
+
+bookstore:{
+[book:
+  {  category:cooking,title : Everyday Italian,  author: Giada, Year : 2005, price : 30.00$}
+  { category:children,title : Harry Potter,  author: Giada, Year : 2005, price : 30.00$}
+]
+}
+book[0].category[0]
+book[0].category[1]
+
+Real time example using apple rest api
+
+-------------------
+Xpath , CSS
+
+driver.findElement(By.id("loginButton")).click();
+it is called a locators 8 different types of locators are there
+class, id, linktext, partial link text, xpath, css
+
+xpath - based where it is location in html 
+absolute - from root of the element - /
+relative - directly going to the element - //
+
+tools available  plugins firebug and in fire bug you have firepath
+
+1. //p - it locates all the p tag on UI
+2. //p[2], //p[6] - locates a specific p tag on UI
+3. (//p)[last()] - it locates last element on p tag
+4.  .//*[@id='navbar-collapse'] - locates the parent tag on UI
+--------
+Match any Element ---- *
+To Refer Attribute -----  @
+For Approximate Match ---  contains()
+For Perfect Match ---  =
+attribute is the property and should be given with @
+//input[@class='textField']
+//input[@name='username']
+//input[contains(@name, 'username')]
+
+//a[@id='loginButton']
+//a[text()='Login']                  ====== perfect match
+//a[contains(text(),'Login')]  ====== approx match but case sensitive
+
+Eg(//b[text()='Five']
+
+
+CSS selectors
+xpath will not apply to all browsers like IE will not support, xpath is slow it will traverse 
+CSS is simple to write, cleaner, supports all browsers, it is constant
+
+* - all  
+element - list all the elements
+
+Simple selectors
+1. based on id attribute  #promo-lider   #id attribute value
+2. based on class .slider.flexslider  . is used for class attribute spaces to be replaced by .
+3. based on tag name - img, p, div
+    img - locates all the img tags
+    p - locates all the p tags
+
+Nested Selectors/ hierarchy
+    ancestor descendant eg li a - An element that is a descendant of another element
+
+   > gives child node of the tag
+    div > div
+    div > section or use 
+    div section or 
+     div+section
+     div~section
+
+  Attribute Selectors
+  tag name [ attribute='value']
+   div[class='section-content clearfix']
+!-not, ^-begins with, * - approx match
+
+ Pseudo selectors when we are not sure of the attributes
+  input:empty
+  
+  Structural Pseudo selectors
+  form div
+  form div:first-child - locates first child element of form with div tag
+  form div:last-child - locates last child element of form with div tag
+  form div:nth-child(4)
+
+plural sight
+code
+java machine learning 
+ automation framework

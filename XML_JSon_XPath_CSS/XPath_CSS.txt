@@ -1,0 +1,95 @@
+----------------XPath and CSS Selector-------------------
+Web ELEMENT
+
+Any ui entity/element in the web page is called a web element
+
+to identify the web element there are 8 ways
+
+Locators
+we locate a webelement - to uniquely identify the webelement
+
+id - identifying by id is preferred as it is faster to locate by the DOM
+class name - identifying the webelement uniquely with class name
+tag name - <a>
+link text - inner text
+partial link text
+xpath
+css
+
+xpath
+
+absolute xpath
+/html/body/header/div[2]/div/ul/li[2]/a[1]
+
+relative xpath
+//*[@id="navbar-collapse"]/ul/li[5]/a
+// - relative xpath
+
+* - match any element
+@ - refer to attribute
+               <a href= "" id=" "  class="
+contains()
+text()
+[nth element]
+
+//*[@id="navbar-collapse"]
+
+//*[@class="nav navbar-nav"]/ul
+//li[contains(@class,'nav-item')]
+
+//tagname[contains(@attributename, 'value')]
+//tagname[@attribute='value']
+
+
+//ul[@class="nav navbar-nav"]
+
+//span[text()='Latest News']
+
+following-sibling::tagname
+preceding-sibling::tagname
+
+ancestor::tagname
+descendant::tagname
+
+
+
+--------------  CSS  selectors ---------------
+
+CSS is faster than xpath
+the browser engine easily identifies with the css
+CSS is always forward only
+CSS is simple and easy to write
+
+ #  id --  #navbar-collapse
+ .   class name  .nav.navbar-nav
+ 
+ * - all elements
+ 
+ space identifies all child
+ 
+ .nav.navbar-nav li    --- 15 elements
+ .nav.navbar-nav li:nth-child(1)  ---> 3 element
+ 
+ >  identifies direct child
+ .nav.navbar-nav>li:nth-child(1)
+ 
+ nth-type(n)
+ 
+ 
+ body > div > div > div > div > header > div > div:nth-child(2) > div > div > div.header-HeaderPrimary > div > div > div.arrange-fit.hide-content-max-m
+.arrange-fit.hide-content-max-m
+
++  next sibling
+
+
+psuedo selectors
+structural selectors
+nth-type(n)
+@attribute
+
+from dom identify tag
+from tag get the attribute
+using attribute you can identify the webelement
+
+
+
