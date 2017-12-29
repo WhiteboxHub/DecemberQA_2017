@@ -1,0 +1,85 @@
+Performance - non functional testing
+
+Why do you need performance testing
+to chk how the app responds to different loads
+response time
+
+What do you mean by load ?
+when you have multiple users how the application responds
+how many requests can an web appliacation/web server take
+if the app crashes on excess load
+
+Why do we need to check how the application is responding?
+
+ip - 123.34.9.244  ---- name abc.com
+                                 .net
+								 .in
+
+Now think as a users
+
+what are the requirements the user will watchful for
+
+
+
+You also need to think in business perspective
+
+to check for business requirements
+CPU, memory, web servers, tools, is the load enough
+how many users the web application should server
+
+BRD, SRS, Requirement Matrix 
+
+
+Performance testing
+To test for System parameters, responsiveness, stability and workload
+
+Speed, Scalability, Stability
+
+Load test - to check for number of concurrent user and transactions
+Stress test - to check breaking point 
+Spike test - to check for unusual increment or decrement
+Endurance test - validate for a long period of time
+Volume testing  -  data base
+Scalability testing - capability of the system, network, processors, bandwidth
+   electronic and networking systems.
+   
+   We need a tool to simulate the environment needed for 
+   performance testing
+   
+   
+   Loadrunner - paid , license
+   
+   JMeter - open source, Java 
+   
+   Test Plan - Test Script
+   Thread - users
+   Samplers - make a requests
+   Config Element - elements needed for testing
+   Timer
+   Listener
+   Pre processors
+   Post processors
+   Logic controllers
+   Graph
+   
+   rampup period - time taken in second to start all the threads
+   
+   shutdown - suddenly stops the current iteration and exits the 
+               testscript
+   stop - run the current iteration and then stop execution
+   
+   sample time - time taken for executing that thread
+   bytes - total no of bytes returned
+   latency - is time taken to receive the first byte response
+   connect time - time taken to connect to the server
+   
+   Assertion - validate for the requirements by performing some conditions
+   
+   Aggregate graph 
+   
+   
+   
+   
+   
+   
+ 
