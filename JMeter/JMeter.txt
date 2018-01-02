@@ -77,6 +77,82 @@ Scalability testing - capability of the system, network, processors, bandwidth
    
    Aggregate graph 
    
+   What is the difference between URL and URI ?
+   URL 
+   
+   www.whiteboxqa.com
+   www.walmart.com
+   
+   URL is a subset of URI
+   
+   URI - identifier
+   
+   www.walmart.com/search?item=clothes
+   
+   ipaddress/path?querystring
+   
+   HTTPRecorder Proxy
+   
+   Proxy server - is an intermediate between the client and server
+   
+      what is a port
+   1. Add Non-test element Http test recorder in Workbench
+   2. Set a port number for the proxy server
+   3. go to firefox, set the network for manual proxy for the 
+       same port
+	4. start the server. check for the certificate
+	5. in firefox import the certificate
+	6. record your scripts.
+	
+	set up
+	record
+	validate
+	report
+   
+   
+   
+   
+   Data Driven
+   
+   When  we externalize the data from the test script
+   
+   
+   Blaze meter
+   1. add the plugin using webstore in chrome
+   2. log into blazemeter using gmail account
+   3. click the blzemeter icon in chrome, start recording
+   4. record your test script
+   5. export your script
+   
+   >>for user defined variable
+   in thread group add ,config element -user defined variable 
+   and set parameters
+   in your parameter add the variable name ${variablename}
+   
+   >> for data driven csv file
+   for csv create a file with .csv
+   add config element csv data set config
+   use appropriate setting
+   in your parameter add the variable name ${variablename}
+   
+   >>>execution order of test elements
+   --------------------------
+   Configuration elements
+   Pre-processors
+   Timers
+   Samplers
+   Post-processors
+   Assertions
+   Listeners
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    
