@@ -146,6 +146,113 @@ Scalability testing - capability of the system, network, processors, bandwidth
    Listeners
    
    
+     
+   JDBC
+   save the jar in jmeter/lib/ext
+   restart jmeter
+   JDBC configuration
+   download driver
+      add jdbc request sampler
+	  copy the syntax of driver and url from
+	    http://jmeter.apache.org/usermanual/component_reference.html#JDBC_Connection_Configuration
+	
+	enter the user name & password
+	validate & run
+   
+   
+   
+   Webservices testing
+   REST 
+   It is also a HTTP Request
+   when choosing public API, need to sign up, generate api key
+   some webservices request you to enable the apikey
+   the key will be available only after 10 to 20 min...read doc for specifications
+  
+    add required parameters
+   validate & run	
+   
+   
+   
+   SOAP
+   use jmeter template to build soap webservices test script
+   add in header manager charset and soap action
+   add the path and xml in http request body data
+   
+   validate and run
+   
+   
+   
+   
+   
+   
+   REST Webservices
+   Representational State Transfer - json object
+
+    javascript object notation
+      [{ name:abc
+	    
+	 }]
+
+	
+   HTTP - stateless protocol
+   openweather
+   2b20b6dc94060344edb22b90fa5c0481
+   
+   {"coord":{"lon":-122,"lat":37.56},
+     "weather":[{"id":721,"main":"Haze","description":"haze","icon":"50d"},{"id":701,"main":"Mist","description":"mist","icon":"50d"}],
+	 "base":"stations",
+	 "main":{"temp":285.15,"pressure":1018,"humidity":76,"temp_min":284.15,"temp_max":286.15},
+	 "visibility":8047,
+	 "wind":{"speed":1.5,"deg":280},
+	 "clouds":{"all":40},"dt":1515002880,
+	 "sys":{"type":1,"id":409,"message":0.0052,"country":"US","sunrise":1514992990,"sunset":1515027779},
+	 "id":0,
+	 "name":"Fremont",
+	 "cod":200
+	 }
+   
+   Difference between Webservices and API
+   
+   
+   
+   
+   AIzaSyBSTGCPiVlBB20jWXby59xcJ0c3POqTqks
+   
+   AIzaSyBSTGCPiVlBB20jWXby59xcJ0c3POqTqks
+   
+   
+   SOAP Webservices
+   FTP/SMTP/IMAP/HTTP
+   
+   
+   POST /calculator.asmx HTTP/1.1
+Host: www.dneonline.com
+Content-Type: text/xml; charset=utf-8
+Content-Length: length
+SOAPAction: "http://tempuri.org/Add"
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <Add xmlns="http://tempuri.org/">
+      <intA>int</intA>
+      <intB>int</intB>
+    </Add>
+	<soapresult>
+  </soap:Body>
+</soap:Envelope>
+   
+   
+   
+   weather soap free service
+   http://www.webservicex.net/ws/WSDetails.aspx?CATID=12&WSID=56
+   
+   
+   https://wiki.jenkins.io/display/JENKINS/Performance+Plugin
+
+   
+   
+   
    
    
    
