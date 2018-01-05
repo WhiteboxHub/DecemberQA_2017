@@ -1,0 +1,145 @@
+Java OOPs
+
+What is an Object ?
+How Object defined in Java?
+Employee
+name
+job id
+workarea function
+
+Class Employee {
+String name;
+void work_area() {
+}
+}
+
+how to write a method signature
+accessmodifier returntype methodname(datatype parameter1, datatype p2,...) {
+
+statements
+}
+
+Inheritance
+when we need the properties to be reused we use inheritance
+
+this
+---reference to the current object
+how do you implement inheritance in Java ?
+extends keyword
+Multiple inheritance
+Multilevel inheritance
+
+Employee
+salary
+      Developer
+           bonus
+
+package
+----community
+logical grouping of entities for clear segregation
+
+- all will be in lowercase
+-every package is a directory structure
+- all entity or object within the package will be uniquely identified with name
+
+In Java, by default the class extends the base class called
+Object defined in java.lang
+
+import package.className;
+import package.*;
+it will get the classes from that package
+
+
+--------------JavaClass.java--------
+package packagename;
+import statements
+class A { 
+   A(){} 
+  A(int a) { } 
+}
+class B {    }
+public class JavaClass {
+  public static void main(String ar[]) {
+  }
+}
+//- single line comment
+/*
+multiple lines of comment
+*/
+---------------------------------------
+Whenever parameterised is defined default constructor will not be added by the jvm/compile time
+
+----------------
+
+method overloaded- in same class
+returntype methodname(dt1 var1, dt2 var2){
+}
+for parameters
+1.  method overloading can be with different datatypes
+2. order of datatypes can be different.
+in calculator class
+1.add(int, int)  add(int, int, float)  
+2.add(float, int,int)   add( int, float, int)
+
+
+void calcSalary(){
+totSal = salary +100;
+    	System.out.println("Total salary in Super class = "+totSal);
+}
+void calcSalary(int conveyance){
+totSal = salary +conveyance;
+System.out.println("Total salary in Super class = "+totSal);
+}
+------------------------------------------
+method overridding --- is always with inheritance
+When a method in the parent class is defined again in the child class with the same signature but with different logic
+it is termed as method overridding.
+
+----------------------
+static keyword
+variable, method, block, nested class
+--------------------
+final
+variable - it means the value once assignment cannot be changed
+method - it means method cannot be overridden
+class - it means Class cannot be subclassed
+
+--------------------------
+interfaces - multiple inheritance
+aggregation
+abstract class
+wrapper class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
