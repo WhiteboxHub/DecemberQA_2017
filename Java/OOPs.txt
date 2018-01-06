@@ -214,7 +214,7 @@ A class contain other classs as a property.
 obj.varible = new ClassName();
 obj.variable.method
 
-
+A Class can implement any number of Interfaces
 
 
 
