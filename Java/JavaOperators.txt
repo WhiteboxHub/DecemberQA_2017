@@ -1,0 +1,72 @@
+----------------------------------------
+primitive datatypes in Java (storage, range)
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+boolean - 1 bit  true/false
+byte - 8 bits / 1 byte    -2power7 to +2 power 8
+short -  16-bit signed
+char
+int - 
+long
+float
+ double
+---------------------------------------
+operators
+++ - increment operator  - the value of variable will be incremented by unity
+-- -> decrement operator  - the value of variable will be decremented by unity
+int a = 5;
+a++;  //6    postfix
+ ++a; //6    prefix
+
+int b = 7;
+b--  ---> 6
+--b
+------------------------
+int c = 0;  int a =5;
+c = ++a;  //in prefix inc /dec works first and then the other operator
+a---> 6
+c---> 6
+-----------------------
+c = a++; // other operator works first and then postfix works
+c-----> 5
+a----> 6
+
+----------------
+int x=5;  int a = 5;
+x < ++a;  // true
+x < a++ ; //false
+<
+++
+----------------------------
+boolean a = true;
+!a --> false
+-----------------------------------
+truth table
+and --> if both variable are true returns true otherwise false
+or -> if any one variable is true returns true
+
+(condition)?true expression : false expression;
+
+int a = 7;
+String result = (a%2==0)?"Even":"Odd";
+sop(result);
+------------------------
+instanceof --- returns boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
