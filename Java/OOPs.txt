@@ -110,25 +110,109 @@ aggregation
 abstract class
 wrapper class
 
+--------------------------Jan 5 2018-------
+interfaces - multiple inheritance
+abstract class
+aggregation
+wrapper class
+operators
+control flow statements
+visibility modifiers
+--------------------------------------------------
+multi-level inheritance
+there is only one base and the child implement other parent classes
+In Java multi-level inh is achieved using Interfaces
+In an interface
+- variables which are constants
+- method signature
 
+basic calculator
+int add() { }
+int sub() 
+----------------------
+car
+enginepower
+void start();
+void stop();
+void power();
+drivePattern();
 
+---------------------
+Animal
+walking() { }
+diet()
+no of legs =4
+-----------------------
+Interfaces are like template or skeleton where it defines the structure of the object
+accessmodifier interface InterfaceName {
+datatype variable=value;
 
+returntype methodname(arguments);
 
+}
+---------------------Vehicle.java-------------------
+interface Vehicle {
+//static final noOfWheels;
+void start();
+void stop();
+void drivePattern();
+}
+-----------------------------------------
+class Car {
+int power = 2;
+int noOfSeats;
+void engineWorking() {
+  sysout ();
+}
+void power() {
+sysout()
+}
 
+class Toyota extends Car implements Vehicle {
+  void start() { syout (); }
+void stop() { syout (); }
+void drivePattern(){ syout (); }
+}
+------------------------------
+abstract class - few methods are implemented 
+and few other method only signature is available
 
+calculator
+add
+sub
+multiple
+abstract memoryPlus
+abstract memoryMinus
+abstract memoryRecall
+public abstract  class  BasicCalculator{
+int result;
+//static final int var = 0;
+//literal it means variable
+ public int add(int a, int b) {  
+      return a+b;
+     }
+public int sub(int a, int b) {  
+      return a-b;
+     }
+public void memoryPlus();
+public void memoryMinus();
 
+}
+----------access modifiers------------------------
+access modifiers are for class, method and variables
+public - it is visible to all class in your project 
+private - it  is visible only to the current class
+protected - it is visible to current class and all child classes within the same package or across packages
+default - it is visible to current class and child class within the same package
 
-
-
-
-
-
-
-
-
-
-
-
+Encapsulation
+Combining /Encapsulate the properties and behaviour of an object in a single entity where data hiding is also implemented.
+--------------------------------
+Aggregation
+it uses contains
+A class contain other classs as a property.
+obj.varible = new ClassName();
+obj.variable.method
 
 
 
