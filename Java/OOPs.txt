@@ -215,6 +215,61 @@ obj.varible = new ClassName();
 obj.variable.method
 
 A Class can implement any number of Interfaces
+---------------------------------
+Encapsulation
+Interface
+
+interface Interface1 {}
+
+interface Shape {
+
+float area();
+double perimeter();
+
+} 
+
+
+class A{ }
+
+class Square extends A implements Shape, Interface1 {
+private float length, breadth;
+ 
+public float area()
+{
+ return length * breadth;
+
+}
+
+double perimeter()
+{
+  return length + breadth;
+}
+
+
+public void setLength(float len) {
+   length = len;
+}
+
+public float getLength() {
+  return length;
+}
+public void setBreadth(float brd) {
+   breadth = brd ;
+}
+
+public float getBreadth() {
+  return breadth;
+}
+
+
+}
+--------------------
+
+
+
+
+
+
 
 
 
