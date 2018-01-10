@@ -1,0 +1,65 @@
+Control Flow Statements
+If 
+If else
+Loops
+	Do while
+	While
+	For 
+	For each
+Switch statement
+Break, continue
+
+    if (condition) {
+       stts to be executed when true
+    }
+   if (condition) {
+        stts to be executed when true
+       }
+ else {
+     stts to be executed when false
+}
+
+If(condition1) {
+}
+Else if(condition2) {
+    }
+Else {
+}
+-------Loops-----------
+To execute multiple iterations of the same statements/ steps
+do {
+     statements
+}while(condition);
+
+
+
+while(condition) {
+  statements;
+}
+---------------for----------
+for(initialization once; condition-->1; inc/dec 3)
+  {
+  Statements2
+}
+----------------------------------
+switch(variable)   //char,int,string1.7
+{
+  case ‘option1’ :  statements;
+                              break;
+  case ‘option2’:statements;
+                              break;
+….
+  default : statement;
+}
+Continue will pass control to the next iteration 
+
+
+
+
+
+
+
+  
+
+
+
