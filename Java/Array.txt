@@ -1,0 +1,55 @@
+Array - Object - reference variable
+is collection of similar data (object)
+it is stored in continuous memory space
+
+int  marks [5];
+
+declare
+initialize
+access
+
+datatype array_variable_name[number of data];
+length of the array ---  variablename.length
+variable_name [index]
+
+1.
+int marks[] ={65, 89, 93, 100, 99};
+
+2.
+int marks[5];
+
+marks = new marks { 65, 89, 93, 100, 99};
+
+for(int i = 0 ; i < marks.length ; i++)
+   sop ( marks[i]);
+
+for each
+for (datatype variable : collection/array)
+{
+statements
+}
+
+for (int a : marks)
+{
+  sop(a);
+}
+
+1
+12
+123
+1234
+12345
+
+Single dimension Array
+
+Multi dimension Array
+
+marks.length ----> numbers of rows
+marks[0].length ---> number of columns in row 0
+
+marks[5][3]
+marks  -   reference /  value ---> reference
+
+marks[0] ---> reference
+
+marks[0][0] ---> value
