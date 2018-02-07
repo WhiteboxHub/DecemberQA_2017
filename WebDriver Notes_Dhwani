@@ -1,0 +1,134 @@
+Automation:- testing given app(web/mobile)..external tool
+
+advantages:-
+100 testscripts--
+1 testscript---
+ 100 testscript---run
+data driven testing--framework- excel--data(i/p)
+loginpage-
+ 100 testscript--
+username- 100
+pwd-100
+(positive/negative)
+
+when automation not possible:-
+bar code
+captcha
+fonts style
+video, audio..
+ new project--
+ sprint -1 --dev-- application not stable--qa-manual
+Selenium -suite components- webdriver, selenium RC, Grid, IDE.
+RC- TEST TOOL--- RC SERVER.
+IDE- firefox pluge in- record play tool-- early stage..
+webdriver -interface----abstract methods--without body..
+                    firefox driver, chrome, ie driver..-class---implementation  ---- here i will create body of  abstract..
+
+ directly it will communicate with your browser
+Grid:- multiple platform concurrently.
+ wallmart--
+ firefox-win
+chrome-win
+firefox-mac
+chrome-mac
+ie-win
+ie-mac
+assertion:- (expected ,actual)
+
+verify:- fail. next line it will execute.. then it will error.. test cases fail
+ tc-1
+l1
+l2
+l3-------------
+l4-----fail---------
+l5-----------sys,out.ptint("finish");
+ test caes -failed......
+
+assert: fail.. stop execution it will out for program...
+
+ selenium webbdriver:-
+advantage:-
+
+open source
+all browser
+multiple langauge
+distributed testing
+different platform..
+
+IDE:-
+ disadnvatage
+CAnNOT enchance code
+ firefox only..
+ integrate tools...
+
+Selenium supports two types of testing
+functional
+regression
+
+Selenium disadvantage
+report not inbuild.. need testng.
+supports web application
+
+instead of IDE-- KATALON WE WILL USE
+
+
+-------------------------------------------------------------------------------
+selenium api
+
+https://seleniumhq.github.io/selenium/docs/api/java/
+
+Locators :-
+address to find web elements..
+
+id
+class
+name
+tagname
+linktext
+partiallinktext
+xpath
+css selector
+
+Difference between "/" and "//"
+
+/--absolute--starts from root
+//-- relative --anywhere within docs..
+
+findElements--list of elements..
+findElement-- single element
+
+difference between close and quite....
+
+simple code:-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstWebdriver {
+public static void main(String[] args) {
+
+//1. load the driver into the environment
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Training room\\workspace\\DecemberSelenium\\resource\\chromedriver.exe");
+//2. Create the instance of the driver
+WebDriver driver = new ChromeDriver();
+//3. Load the given URL in the browser. it should be complete URL
+driver.get("http://whiteboxqa.com/");
+//find the webelement, perform action, compare actual expected
+//WebElement webelement = driver.findElement(By.id("wblhead"));//
+WebElement wb2=driver.findElement(By.xpath("//*[@id='loginButton']"));
+
+wb2.click();
+//driver.close();///current win
+//driver.quit();//all windows...close...
+// System.out.println("Title:" +driver.getTitle());
+
+}
+}
+------------------------------------------------------------
+drop down list
+selectbyvalue
+selectbyindex
+selectbyvisibletext
+
+Checkbox:-
