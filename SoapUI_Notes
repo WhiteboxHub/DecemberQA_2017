@@ -1,0 +1,157 @@
+what is web service?
+
+service available on web..
+communication between applications over the web.
+provides standard protocol /format for communication
+platform independent communication
+ using it two different app can talk to each other... exchange data/ information..
+
+real time example:-
+
+two types of web services:-
+
+SOAP:- Simple Object Access Protocol
+               Medium - HTTP METHODS
+               Format- XML
+REST:- Representational State Transfer
+               Medium - Http methods
+               Format- XML/JSON/TEXT.....
+
+SOAP WEB SEVICES:-
+ client:-- ques:-
+               what are the services available on the server.
+                  what are the request /response parameters?
+                    how to call web services?
+WSDL:- ( Web Service Description Language):- service provider publish that describe all attributes of that web service.
+XML Based interface. used to describe functionality of web services. server will create wsdl and client get it.
+
+developer will give  you WSDL.
+
+          It contains:-
+                              definition of web service
+                              messages
+                              services end point.
+                              Binding(SOAP Request and Response)
+
+UDDI:- (Universal Description, Discovery and Integration) - online directory--all wsdl..
+
+               phone directory.--all phone number...
+service provider publishes web services..
+
+SOAP VS REST:-
+
+SOAP:--- Protocol- http/ftp..
+               platform independent
+               WSDL
+               In build security
+               xml
+                       heavy weight
+
+REST:- PROTOCOL- http
+               json/xml/text.csv..
+               light weight
+               easy to understand
+               implements some methods to get security.
+
+Web services-  what we have to test in web services?
+                    Functional testing, security testing, load testing, status code, schema compliance, content-types, response data, data types, valid / invalid status code..
+
+------------------------------------------------------------------------------------------------------------------------------------
+what is web service?
+
+service available on web..
+communication between applications over the web.
+provides standard protocol /format for communication
+platform independent communication
+ using it two different app can talk to each other... exchange data/ information..
+
+real time example:-
+
+two types of web services:-
+
+SOAP:- Simple Object Access Protocol
+               Medium - HTTP METHODS
+               Format- XML
+REST:- Representational State Transfer
+               Medium - Http methods
+               Format- XML/JSON/TEXT.....
+
+SOAP WEB SEVICES:-
+ client:-- ques:-
+               what are the services available on the server.
+                  what are the request /response parameters?
+                    how to call web services?
+WSDL:- ( Web Service Description Language):- service provider publish that describe all attributes of that web service.
+XML Based interface. used to describe functionality of web services. server will create wsdl and client get it.
+
+developer will give  you WSDL.
+
+          It contains:-
+                              definition of web service
+                              messages
+                              services end point.
+                              Binding(SOAP Request and Response)
+
+UDDI:- (Universal Description, Discovery and Integration) - online directory--all wsdl..
+
+               phone directory.--all phone number...
+service provider publishes web services..
+
+SOAP VS REST:-
+
+SOAP:--- Protocol- http/ftp..
+               platform independent
+               WSDL
+               In build security
+               xml
+                       heavy weight
+
+REST:- PROTOCOL- http
+               json/xml/text.csv..
+               light weight
+               easy to understand
+               implements some methods to get security.
+
+Web services-  what we have to test in web services?
+                    Functional testing, security testing, load testing, status code, schema compliance, content-types, response data, data types, valid / invalid status code..
+
+
+----------------------------------------------------------------------------------------------------------------------
+soapui --tool test soapui soap web services..now a days it supports REST API
+OPEN SOURCE. PAID VERSION
+
+Test Suite--> combination of test cases--> test step..
+Assertions-> Expected value vs actual value-> success/failure.
+
+ web services:- request and response (Header and body(payload))
+REQUEST:- Header, Body(payload), Authentication,
+Response- Header and body
+                    content type, content length, data count, element present, value present, status code
+
+HTTP status:-
+
+     200 - ok
+     201- created
+     400- bad request
+     404-page not found
+     405-method not allowed
+     409- conflicts
+      500- internal server error
+
+HTTP Methods:-
+
+GET:- Read only access to resource
+PUT:- create new resource update resource
+POST:- Create new resource
+Delete:- remove resource
+add- 4+2=6    --actual response             docs--expected response-6 -- assertion pass
+                7                                                                                                              fail
+actual response and expected response--> compare
+
+ property transfer:- storing or retrieving data from  property file.
+ 1 transfer property from  property file to SOAP Request.
+ 2 transfer property from Response of first Request to another Request.
+
+ project level
+test suite
+test case level property
