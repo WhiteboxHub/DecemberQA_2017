@@ -1,0 +1,9 @@
+wrapper class:- convert primitive to object and object to primitive.
+
+auto boxing and unboxing
+
+auto boxing : primitive to object
+unboxing : object to primitive
+
+primitive type:- boolean,int,char,byte, short,float,double, long
+Wrapper:- Boolean, Character,Byte, Short, Integer,Long, Float,Double
