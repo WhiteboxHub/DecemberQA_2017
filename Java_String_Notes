@@ -1,0 +1,31 @@
+String -final class
+
+final--keyword--
+      variable- can not change
+         method - cannot over ride that method
+          class- cannot inherit that class
+
+ways to create string object:-
+          two ways:-
+                    1 new operator
+                     2  string literal
+
+String objects are immutable:- unmodified .. cannot change.
+username, pwd--  cannot change..
+
+string compare
+     equals method:- original contents of the string
+     == operator
+string buffer:- class used to create mutable string string..
+
+string  :- immutable        string buffer:- mutable
+
+StringBuilder:-  class used to create mutable string string..
+
+String Buffer:- synchronized. thread safe..
+                         more time
+                         less efficient
+
+and string builder:-non synchronized.
+                              less time...
+                                   more efficient
